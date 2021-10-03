@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+  var itemlist=["apple","mango","pen","water","butterfly","book"];
+  var one=()=>{
+      var data="<h2>Total Items:" +"</h2> \n";
+        //alert(data);
+        itemlist.map((itemname,itemindex)=>{
+           // alert(itemname," =",itemindex);
+           data=data+"<p>"+itemname+" = "+itemindex+"</p> \n";
+        })
+document.getElementById("container").innerHTML=data;
+  }
+        </script>
+    </head>
+    <body>
+        <h1>array in javascript</h1>
+        <button onclick ="one()">get item list</button>
+        <br/><br>
+        <div id="container">no data</div>
+    </body>
+</html>

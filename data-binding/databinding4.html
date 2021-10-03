@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script>
+     var one=()=>{
+         var input=document.getElementById("msg").value;
+         document.getElementById("xyz").innerText=input;
+         document.getElementById("total").innerText=input.length;
+     }
+    </script>
+    </head>
+    <body>
+        <h1>Databinding4.html</h1>
+        <textarea rows="10" cols="50" onkeyup="one()" id="msg"></textarea>
+        <p id="xyz"></p>
+        <h2 id="total">0</h2>
+
+    </body>
+</html>

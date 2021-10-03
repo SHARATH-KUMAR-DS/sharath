@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <script>
+        var item = [
+            { category: "Books", product: ["java", "node", "php", "mysql", "html", "css"] },
+            { category: "Food", product: ["Rice", "Potato", "Mil"] },
+            { category: "Computer", product: ["Desktop", "Laptop"] },
+            { category: "Mobile", product: ["Plain", "Color", "Multimedia"] },
+        ];
+
+        var getCategory = () => {
+            var catList = "";
+            item.map((info, index) => {
+                catList += "<button onmouseenter='getProduct("+index+")'>" + info.category + "</button>";
+            });
+            document.getElementById("category").innerHTML = catList;
+        }
+
+        var getProduct = (index = 0) => {
+            var proList = "<h2>Available Product : " + item[index].product.length + "</h2>";
+            item[index].product.map((proname, pindex) => {
+                proList += "<p>" + proname + "</p>";
+            })
+            document.getElementById("product").innerHTML = proList;
+        }
+    </script>
+    <style>
+        #category {
+            text-align: center;
+            padding: 40px;
+        }
+        #product{
+            width:400px;
+            margin:auto;
+        }
+
+        button{
+            padding:15px 35px 15px;
+            background:red;
+            color:white;
+            border:0px;
+            cursor:pointer;
+            margin:5px;
+        }
+        button:hover{
+            background:blue;
+        }
+
+    </style>
+</head>
+
+<body onload="getCategory() , getProduct()">
+    <h1 align="center">Nested Array , Array inside Array </h1>
+    <h2 align="center"></h2>
+    <div id="category"></div>
+    <div id="product"></div>
+</body>
+
+</html>

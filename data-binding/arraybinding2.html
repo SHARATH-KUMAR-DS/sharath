@@ -1,0 +1,61 @@
+<html>
+    <head>
+       <script>
+           var itemlist=["Laptop Dell", "Mouse Wipro", "Keyboard intex", "Milk", "Water"];
+           
+           var one = () =>{
+
+               var data = "";
+                itemlist.map((itemname , itemindex)=>{
+
+                 data = data + "<tr>";
+                 data = data + "<td>" + itemindex + "</td>";
+                 data = data + "<td>" + itemname + "</td>";
+                 data = data + "<td> <button onclick='delitem("+itemindex+")'>Delete</button> </td>";
+                 data = data + "</tr>";
+
+                })
+                alert(data);
+               document.getElementById("container").innerHTML = data;
+           }
+
+           var delitem = (index) =>{
+                // array.splice(position , 1)   0 for adding, 1 for deleting 
+                var name = itemlist[index]; // to capture name of element by index
+                itemlist.splice(index , 1);
+                one();// reload the list
+                document.getElementById("message").innerText = name + " Deleted Successfully";
+           }
+
+           var save = () =>{
+               var name = document.getElementById("newitem").value; 
+               itemlist.unshift(name);// it will add in begning of array 
+               // itemlist.push(name); // it will add at the end of array 
+               one(); // calling back to function one() to reload the list after adding new
+               document.getElementById("message").innerText = name + " Added Successfully"; 
+               document.getElementById("newitem").value=""; // to clear the text field
+           }
+
+       </script>
+    </head>
+    <body onload="one()">
+        <h1> Single Dimensioanl Array + html+ javascript </h1>
+        <p> 
+            Enter Item Name : <input type="text" id="newitem"/> 
+            <button onclick="save()"> Save Item </button>
+        </p>
+        <p id="message"></p>
+        <table  cellPadding="20">
+             <thead>
+                <tr>
+                    <th>Item No</th>
+                    <th>Product Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="container">
+            </tbody>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            #container{text-align:center; margin:auto; width:80%;}
+            p{color:blue;margin:1%;width:22%; float:left;}
+        </style>
+        <script>
+async function getuser(){
+var alldata= await import("./data.js");
+var userlist="<h2> Available users </h2>";
+alldata.user.map((name,index)=>{
+    userlist+="<p>"+index+ " , " +name+"</p>";
+})
+document.getElementById("mydata").innerHTML=userlist;
+}
+async function getitem(){
+    var alldata= await import("./data.js");
+    var itemlist ="<h2> Available Items </h2>";
+    alldata.itemlist.map((name,index)=>{
+        itemlist+="<p>"+index+ " , "+name+"</p>";
+    })
+    document.getElementById("mydata").innerHTML=itemlist;
+}
+        </script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Javascript using async, await, import, export keywords</h1>
+            <button onclick="getuser()">Get Users</button>
+        <button onclick ="getitem()">Get Items</button>
+        </br></br>
+        
+        <div id="mydata"></div>
+        </div>
+    </body>
+</html>

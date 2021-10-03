@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>
+      var abc=(data)=>{
+          alert(data);
+      }
+        </script>
+    </head>
+    <body onload='abc("hi, welcome back   ")'>
+        <h1>Keyboard events in HTML </h1>
+        onkeypress: <input type= "text" onkeypress="abc(this.value)" value="apple">
+        <br/>
+        onkeyup: <input type ="text" onkeyup ="abc(this.value)" value="apple">
+        <br/><br>
+        onfocus: <input type="text" onfocus ="abc(this.value)" value="apple">
+        <br/><br>
+        onblur: <input type="text" onblur="abc(this.value)" value="apple">
+    </body>
+</html>

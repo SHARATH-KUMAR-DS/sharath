@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+var one=()=>{
+    var n1=document.getElementById("n1").value;
+    var n2=document.getElementById("n2").value;
+    n1=parseInt(n1);
+    n2=parseInt(n2);
+    var c=n1+n2;
+    document.getElementById("result").innerText="the sum is : " +c;
+}
+var two=()=>{
+    var n1=document.getElementById("n1").value;
+    var n2=document.getElementById("n2").value;
+    var c=n1/n2;
+    document.getElementById("result").innerText="the div is :" +c;
+}
+var three=()=>{
+    var n1=document.getElementById("n1").value;
+    var n2=document.getElementById("n2").value;
+    var c=n1*n2;
+    document.getElementById("result").innerText="the multiply is : " +c;
+}
+        </script>
+    </head>
+    <body>
+        <h1>using + operator</h1>
+        <h1 id="result">0</h1>
+        <p>number1: <input type="number" id="n1"/></p>
+        <p>number2:<input type ="number" id="n2"/></p>
+        <button onclick="one()">n1+n2</button>
+        <button onclick ="two()">n1/n2</button>
+
+        <button onclick="three()">n1*n2</button>
+    </body>
+</html>

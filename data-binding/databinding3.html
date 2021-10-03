@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script>
+     var one=()=>{
+        var name=document.getElementById("fname").value;// pick value
+        alert(name);
+        document.getElementById("susname").innerText=name; //assign as output value
+        document.getElementById("etyyname").value=name; // assign as 2nd input value
+     }
+        </script>
+    </head>
+    <body>
+        <h1>Databinding 3 .html</h1>
+        Enter name as : <input type="text" id="fname"/>
+        <button onclick ="one()">click</button>
+        <h1 id="susname">No data</h1>
+        enter your name: <input type="text" id="etyyname"/>
+
+    </body>
+</html>

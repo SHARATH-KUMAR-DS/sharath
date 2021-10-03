@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script>
+            var item = [
+                {name:"Apple", price:500, qty:10},
+                {name:"Banana", price:400, qty:6},
+                {name:"Mango", price:300, qty:8},
+                {name:"Rice", price:200, qty:5}
+            ];
+
+            var getItem = ()=>{
+                document.getElementById("total").innerText = "Available items : "+ item.length;
+                var htmlData = "";
+                item.map((iteminfo , index)=>{
+                    htmlData += "<tr>";
+                    htmlData += "<td>" + index + "</td>";
+                    htmlData += "<td>" + iteminfo.name + "</td>";
+                    htmlData += "<td>" + iteminfo.price + "</td>";
+                    htmlData += "<td>" + iteminfo.qty + "</td>";
+                    htmlData += "<td> <button onclick='delItem(" +index+ ")'>Delete</button> </td>";
+                    htmlData += "</tr>";
+                })
+                document.getElementById("itemlist").innerHTML = htmlData;
+            }
+
+            var delItem = (index) =>{
+                var userInput = confirm("Are You Sure ?");
+                if(userInput==true){
+                    item.splice(index , 1);
+                    getItem(); // call back the function to reload the list after item get deleted
+                }
+
+            }
+                var save=()=>{
+      Itemname=document.getElementById("newname").value;
+      Itemprice=document.getElementById("newprice").value;
+      Itemqty=document.getElementById("newqty").value;
+      alert(Itemname+""+ Itemprice+""+ Itemqty);
+      var newiteminfo={name:Itemname, price:Itemprice,qty:Itemqty};
+      item=item.concat(newiteminfo);
+      getItem();// to reload
+      document.getElementById("newname").value="";
+      document.getElementById("newprice").value="";
+      document.getElementById("newqty").value="";
+                }
+    </script>
+  </head>
+  <body onload="getItem()">
+    <h1 align="center">Multi Dimensional Array with javascript</h1>
+    <h1 align="center" id="total"></h1>
+    <div style="text-align: center">
+      Item Name : <input type="text" id="newname" /> Item Price :
+      <input type="text" id="newprice" /> Item Quantity :
+      <input type="text" id="newqty" />
+      <button onclick="save()">Save Item</button>
+    </div>
+    <table align="center" cellpadding="12">
+      <thead>
+        <tr>
+          <th>Item Index</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="itemlist"></tbody>
+    </table>
+  </body>
+</html>

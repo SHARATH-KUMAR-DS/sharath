@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <style>
+            button{
+                padding:15px 35px 15px;
+                background: red;
+                color: white;
+                border:0px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            button:hover{
+                background: blue;
+            }
+            #container{
+                width:70%;
+                margin:auto;
+                min-height:400px;
+                text-align:center;
+                box-shadow:0px 10px 10px gray;
+                border-radius: 5px;
+                padding:20px;
+            }
+        </style>
+        <script>
+function one(){
+    fetch("home.html")// sending request
+    .then(response => response.text())
+    .then(fileData => document.getElementById("container").innerHTML=fileData )
+}
+function two(){
+    fetch("about.html")
+    .then(response =>response.text())
+    .then(fileData => document.getElementById("container").innerHTML=fileData )
+}
+function three(){
+    fetch("gallery.html")
+    .then(response =>response.text())
+    .then(fileData => document.getElementById("container").innerHTML=fileData )
+}
+function four(){
+  
+    fetch("contact.html")
+    .then(response =>response.text())
+    .then(fileData => document.getElementById("container").innerHTML=fileData )
+}
+function five(){
+    var data="<h2>City list</h2>";
+    fetch("city.json")
+    .then(response =>response.json())//capture as json
+    .then(arrayData =>{
+arrayData.map((cityname,index)=>{
+    data=data+"<p>"+cityname+"</p>";
+    
+})
+document.getElementById("container").innerHTML=data;
+    } )//json to array
+}  
+function six(){
+    var data="<h2> book list </h2>";
+    fetch("http://localhost:1234/book")
+    .then(response => response.json())
+    .then(bookArray =>{
+        bookArray.map((bookinfo,index)=>{
+            data+="<p>"+bookinfo.name+" ,"+bookinfo.price+","+bookinfo.qty+"</p>";
+        })
+        document.getElementById("container").innerHTML=data;
+    })
+}
+    </script>
+
+
+    </head>
+    <body onload="one, two()">
+<h1 align="center">Javascript fetch() API to read data from other source</h1>
+  <p align="center">
+<button onclick="one()">Home</button>
+   <button onclick="two()">About us</button>
+   <button onclick="three()">My Gallery</button>
+   <button onclick="four()">Contact Us</button>
+   <button onclick="five()">City list</button>
+   <button onclick="six()">Read Json server</button>
+   </p>
+   <div id="container">
+
+   </div>
+</body>
+</html>
